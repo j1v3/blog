@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+     {% if user.is_authenticated %}
+     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>   	
+     {% endif %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+        {% if post.published_date %}
+            <div class="date">
+                publié le {{ post.published_date }} par {{ post.author }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

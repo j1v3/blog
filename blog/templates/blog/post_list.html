@@ -6,8 +6,8 @@
         <div class="col-md-8">
             {% for post in posts %}
                 <div class="post">
-                    <h1><a href="">{{ post.title }}</a></h1>
-                    <p>{{ post.text|linebreaksbr }}</p>
+                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                    <p>{{ post.text|slice:":100" }}...</p>
                     <div class="date">
                         publié le {{ post.published_date }} par {{ post.author }}
                     </div>
