@@ -1,5 +1,6 @@
 *.pyc
 __pycache__
+j1v3d4v0m17/__pycache__
 myvenv
 db.sqlite3
 /static
