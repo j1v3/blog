@@ -11,6 +11,7 @@
                     <div class="date">
                         publié le {{ post.published_date }} par {{ post.author }}
                     </div>
+                    <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
                 </div>
             {% endfor %}
         </div>

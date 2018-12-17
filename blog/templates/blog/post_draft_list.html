@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|truncatechars:200 }}</p>
+		{% if post.published_date %}
+			<div class="date">
+				publié le {{ post.published_date }} par {{ post.author }} 
+			</div>
+		{% else %}
+			<div class="date">
+				crée le {{ post.created_date|date:'d-m-Y' }} par {{ post.author }}
+				<a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+			</div>
+		{% endif %}
+		    	<a href="{% url 'post_draft_list' %}" class="top-menu">
+		    		<span class="glyphicon glyphicon-edit"></span>
+		    	</a>
+        </div>
+    {% endfor %}
+{% endblock %}
